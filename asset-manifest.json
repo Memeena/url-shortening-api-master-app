@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/url-shortening-api-master-app/static/css/main.1b8bdd6e.css",
+    "main.css": "/url-shortening-api-master-app/static/css/main.d146c9bf.css",
     "main.js": "/url-shortening-api-master-app/static/js/main.29e013a3.js",
     "static/js/787.3cfb1560.chunk.js": "/url-shortening-api-master-app/static/js/787.3cfb1560.chunk.js",
     "static/media/illustration-working.svg": "/url-shortening-api-master-app/static/media/illustration-working.c9b5ef5452363d8be3df709375d50bd0.svg",
@@ -15,12 +15,12 @@
     "static/media/icon-twitter.svg": "/url-shortening-api-master-app/static/media/icon-twitter.1d5c6d5e6ab1717a500af2df0a87959a.svg",
     "static/media/icon-facebook.svg": "/url-shortening-api-master-app/static/media/icon-facebook.229c75a01827343aef31ae916e2ec18a.svg",
     "static/media/bg-shorten-mobile.svg": "/url-shortening-api-master-app/static/media/bg-shorten-mobile.41c34b33a14a3077e506.svg",
-    "main.1b8bdd6e.css.map": "/url-shortening-api-master-app/static/css/main.1b8bdd6e.css.map",
+    "main.d146c9bf.css.map": "/url-shortening-api-master-app/static/css/main.d146c9bf.css.map",
     "main.29e013a3.js.map": "/url-shortening-api-master-app/static/js/main.29e013a3.js.map",
     "787.3cfb1560.chunk.js.map": "/url-shortening-api-master-app/static/js/787.3cfb1560.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b8bdd6e.css",
+    "static/css/main.d146c9bf.css",
     "static/js/main.29e013a3.js"
   ]
 }
