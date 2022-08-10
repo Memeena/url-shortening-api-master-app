@@ -1,0 +1,46 @@
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6e6e6;
+  padding: 10rem 3rem;
+  padding-top: 18rem;
+  /* padding-bottom: 10rem; */
+  position: relative;
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.line {
+  /* content: ""; */
+  height: 80rem;
+  width: 1rem;
+  background-color: hsl(180, 66%, 49%);
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+  position: absolute;
+  z-index: 0;
+  margin-top: 6rem;
+}
+
+@media screen and (min-width: 600px) {
+  .features {
+    padding: 15rem;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* gap: 5rem; */
+  }
+
+  .line {
+    width: 80rem;
+    height: 1rem;
+  }
+}

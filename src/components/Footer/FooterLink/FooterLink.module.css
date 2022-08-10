@@ -1,0 +1,29 @@
+.footerLink {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.item {
+  color: hsl(257, 7%, 63%);
+  cursor: pointer;
+}
+
+.item:hover {
+  color: hsl(180, 66%, 49%);
+}
+
+@media screen and (min-width: 600px) {
+  .list {
+    align-items: flex-start;
+  }
+}

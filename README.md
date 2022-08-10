@@ -1,70 +1,205 @@
-# Getting Started with Create React App
+# Frontend Mentor - Shortly URL shortening API Challenge solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### The challenge
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users should be able to:
 
-### `npm test`
+- View the optimal layout for the site depending on their device's screen size
+- Shorten any valid URL
+- See a list of their shortened links, even after refreshing the browser
+- Copy the shortened link to their clipboard in a single click
+- Receive an error message when the `form` is submitted if:
+  - The `input` field is empty
+  - Check for valid URL and display error message if invalid
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot
 
-### `npm run build`
+![](./screenshot.jpg)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Links
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Solution URL: [Solution URL here](https://your-solution-url.com)
+- Live Site URL: [Live site URL here](https://your-live-site-url.com)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## My process
 
-### `npm run eject`
+### Built with
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- CSS Modules - For styles
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What I learned
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This was a thorough learning challenge for improving my kowledge in React. Learnt the following
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- How React works when a state is changed ?
+  It re renders the component and the associated components after every state change so that the UI is updated with newly changed state variable. When a state variable is changed, it does not get affected in the current render rather gets changed in the next render.
 
-## Learn More
+- How to populate the state variable with an object retaining the previous values
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+const newLink = {
+  id: nanoid(),
+  link: data.result.original_link,
+  resultLink: data.result.short_link,
+  isCopy: false,
+  isError: false,
+  errMsg: "",
+};
+setShortLink((prev) => [newLink, ...prev]);
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- How to fetch from an API and use the data using an async function using async-await
 
-### Code Splitting
+```js
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  try {
+    const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
+    const data = await res.json();
 
-### Analyzing the Bundle Size
+    if (!data.ok) {
+      const errorLink = {
+        id: nanoid(),
+        link: "",
+        resultLink: "",
+        isCopy: false,
+        isError: true,
+        errMsg: data.error,
+      };
+      setShortLink((prev) => [errorLink, ...prev]);
+    } else {
+      const newLink = {
+        id: nanoid(),
+        link: data.result.original_link,
+        resultLink: data.result.short_link,
+        isCopy: false,
+        isError: false,
+        errMsg: "",
+      };
+      setShortLink((prev) => [newLink, ...prev]);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- How to pass props to child component.
 
-### Making a Progressive Web App
+```js
+const shortLinkElements = shortLink.map((link) => (
+  <ShortLink
+    link={link.link}
+    resultLink={link.resultLink}
+    key={link.id}
+    id={link.id}
+    isCopy={link.isCopy}
+    handleCopy={handleCopyToClipboard}
+    isError={link.isError}
+    errMsg={link.errMsg}
+  />
+));
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- How to check condition in child component and update the function in the parent component by passing the vaules back to the parent component. In this challenge, the shortlink obtained from API is checked for copy by passing the 'isCopy' variable and that particular link with its id is changed in the parent component.
 
-### Advanced Configuration
+```js
+<button
+  className={styles.copy}
+  style={dynamicStyle}
+  onClick={(event) => props.handleCopy(event, props.id, props.resultLink)}
+>
+  {props.isCopy ? "Copied!" : "Copy"}
+</button>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Using dynamic styles for changing the style dynamically based on a condition.
 
-### Deployment
+```js
+const dynamicStyle = {
+  border: !url || !validUrl ? "2px solid red" : "none",
+};
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- How to check for condition in the JSX and change the UI.
 
-### `npm run build` fails to minify
+```js
+{
+  url && !validUrl && (
+    <p className={styles.invalid}>Invalid URL.Please try again</p>
+  );
+}
+{
+  !url && <p className={styles.invalid}>Please enter a link!</p>;
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- How to pass card details as an array to a child component.
+
+```js
+const cardData = [
+  {
+    img: "icon-brand-recognition.svg",
+    heading: "Brand Recognition",
+    description: `Boost your brand recognition with each click. Generic links don’t mean a thing. Branded links help instil confidence in your content.`,
+  },
+  {
+    img: "icon-detailed-records.svg",
+    heading: "Detailed Records",
+    description: `Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.`,
+  },
+  {
+    img: "icon-fully-customizable.svg",
+    heading: "Fully Customizable",
+    description: `Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.`,
+  },
+];
+
+const cardElements = cardData.map((card, i) => (
+  <Card
+    key={i}
+    img={card.img}
+    heading={card.heading}
+    description={card.description}
+  />
+));
+```
+
+### Continued development
+
+- The active states of the social icons in the footer are not implemented as per design. The problem is to find a proper way of using svg icons in a page. Whether to use two different icons or changing the existing icon itself using some property. Still learning and shall implement it soon.
+
+- The transition from normal to hover states can be handled with some animations. Learning about animations in React and shall implement it soon.
+
+### Useful resources
+
+- [Scrimba - Learn React for Free](https://scrimba.com/learn/learnreact) - This helped me building this project. I have completed this course and have signed up for Advanced course of the same.
+
+## Author
+
+- Frontend Mentor - [@meMeena](https://www.frontendmentor.io/profile/meMeena)
+- Twitter - [@Mekrish18](https://www.twitter.com/MeKrish18)
