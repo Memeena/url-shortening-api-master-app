@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/url-shortening-api-master-app/static/css/main.1b8bdd6e.css",
+    "main.js": "/url-shortening-api-master-app/static/js/main.29e013a3.js",
+    "static/js/787.3cfb1560.chunk.js": "/url-shortening-api-master-app/static/js/787.3cfb1560.chunk.js",
+    "static/media/illustration-working.svg": "/url-shortening-api-master-app/static/media/illustration-working.c9b5ef5452363d8be3df709375d50bd0.svg",
+    "static/media/logo.svg": "/url-shortening-api-master-app/static/media/logo.834643034343520f3b4d7e43111ed4d8.svg",
+    "static/media/logo-invert.svg": "/url-shortening-api-master-app/static/media/logo-invert.d37cd7a3930aabd45f80de0f58605b22.svg",
+    "static/media/bg-boost-desktop.svg": "/url-shortening-api-master-app/static/media/bg-boost-desktop.772154c9b0e451733f5e.svg",
+    "static/media/icon-instagram.svg": "/url-shortening-api-master-app/static/media/icon-instagram.df5873287e1c06a0fe74440f6ccd8394.svg",
+    "index.html": "/url-shortening-api-master-app/index.html",
+    "static/media/icon-pinterest.svg": "/url-shortening-api-master-app/static/media/icon-pinterest.a2d25ab4c70b78c4028f25323009cc58.svg",
+    "static/media/bg-boost-mobile.svg": "/url-shortening-api-master-app/static/media/bg-boost-mobile.4b04bd89ea775da3deff.svg",
+    "static/media/bg-shorten-desktop.svg": "/url-shortening-api-master-app/static/media/bg-shorten-desktop.0d9742f433f4b0d8752b.svg",
+    "static/media/icon-twitter.svg": "/url-shortening-api-master-app/static/media/icon-twitter.1d5c6d5e6ab1717a500af2df0a87959a.svg",
+    "static/media/icon-facebook.svg": "/url-shortening-api-master-app/static/media/icon-facebook.229c75a01827343aef31ae916e2ec18a.svg",
+    "static/media/bg-shorten-mobile.svg": "/url-shortening-api-master-app/static/media/bg-shorten-mobile.41c34b33a14a3077e506.svg",
+    "main.1b8bdd6e.css.map": "/url-shortening-api-master-app/static/css/main.1b8bdd6e.css.map",
+    "main.29e013a3.js.map": "/url-shortening-api-master-app/static/js/main.29e013a3.js.map",
+    "787.3cfb1560.chunk.js.map": "/url-shortening-api-master-app/static/js/787.3cfb1560.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b8bdd6e.css",
+    "static/js/main.29e013a3.js"
+  ]
+}
