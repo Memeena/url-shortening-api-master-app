@@ -111,8 +111,17 @@
     background-position: center;
     width: 80%;
     top: -10%;
-    /* gap: 4rem; */
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center;
   }
+  
+  .button {
+    padding: 2rem 1.5rem;
+    transform: translateY(1rem);
+  }
+
 
   .result {
     display: grid;
